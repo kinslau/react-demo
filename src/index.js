@@ -8,6 +8,7 @@ import TodoApp from './component/TodoApp'
 import MarkdownEditor from './component/MarkdownEditor'
 import Lists from './component/Lists'
 import Calculator from './component/BoilingVerdict'
+import Tables from './component/Tables'
 import {Greeting,LoginControl} from './component/Greeting'
 
 
@@ -95,7 +96,8 @@ ReactDOM.render(
     <Provider store={store}>
         {/* <App/> */}
         {/* <Form/> */}
-        <Calculator/>
+        {/* <Calculator/> */}
+        <Tables/>
         {/* <LoginControl/> */}
         {/* <Lists numbers={[1,3,5,7]}/> */}
         {/* <Greeting isLoggedIn={true}/> */}
