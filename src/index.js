@@ -9,6 +9,7 @@ import MarkdownEditor from './component/MarkdownEditor'
 import Lists from './component/Lists'
 import Calculator from './component/BoilingVerdict'
 import Tables from './component/Tables'
+import Cards from './component/Cards'
 import {Greeting,LoginControl} from './component/Greeting'
 
 
@@ -98,10 +99,11 @@ ReactDOM.render(
         {/* <Form/> */}
         {/* <Calculator/> */}
         <Tables/>
+        {/* <Cards/> */}
         {/* <LoginControl/> */}
         {/* <Lists numbers={[1,3,5,7]}/> */}
         {/* <Greeting isLoggedIn={true}/> */}
-        {/* <HelloMeassage name = '刘辉' sex='男'/> */}
+        {/* <HelloMeassage name = '刘金辉是傻逼' sex='男'/> */}
         {/* <Timer/> */}
         {/* <TodoApp/> */}
         {/* <MarkdownEditor/> */}

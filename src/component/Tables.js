@@ -1,19 +1,21 @@
 import { Table } from 'antd';
 import React, { Component } from 'react'
+import 'antd/dist/antd.css'
 
 
 const columns = [{
   title: 'Name',
-  dataIndex: 'name',
-  width: 150,
+  dataIndex: 'name'
+
 }, {
   title: 'Age',
-  dataIndex: 'age',
-  width: 150,
+  dataIndex: 'age'
+
 }, {
   title: 'Address',
-  dataIndex: 'address',
-}];
+  dataIndex: 'address'
+
+}]
 
 const data = [];
 for (let i = 0; i < 100; i++) {
@@ -28,7 +30,7 @@ for (let i = 0; i < 100; i++) {
 class Tables extends Component{
     
     render(){
-      return(<Table columns={columns} dataSource={data} pagination={{ pageSize: 20 }}  />)
+      return(<Table columns={columns} bordered dataSource={data} pagination={{ pageSize: 20 }} scroll = {{y:1500}} />)
     }
 }
 
