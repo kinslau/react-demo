@@ -13,7 +13,7 @@ class HelloMeassage extends Component{
 
 
 function text(){
-    return "刘辉" 
+    return "" 
 }
 
 export default HelloMeassage

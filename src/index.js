@@ -10,7 +10,11 @@ import Lists from './component/Lists'
 import Calculator from './component/BoilingVerdict'
 import Tables from './component/Tables'
 import Cards from './component/Cards'
+import Gird from './component/Gird'
+import Buttons from './component/Buttons'
+import Menus from './component/Menu'
 import {Greeting,LoginControl} from './component/Greeting'
+
 
 
 
@@ -98,8 +102,11 @@ ReactDOM.render(
         {/* <App/> */}
         {/* <Form/> */}
         {/* <Calculator/> */}
-        <Tables/>
+        {/* <Tables/> */}
+        {/* <Gird/> */}
         {/* <Cards/> */}
+        {/* <Menus/> */}
+        <Buttons/>
         {/* <LoginControl/> */}
         {/* <Lists numbers={[1,3,5,7]}/> */}
         {/* <Greeting isLoggedIn={true}/> */}
