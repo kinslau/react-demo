@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import {createStore} from 'redux'
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+import { BrowserRouter as Router, Route, Switch ,Link } from 'react-router-dom'
 import {Provider,connect } from 'react-redux'
 import HelloMeassage from './component/HelloMeassage'
 import Timer from './component/Timer'
@@ -11,110 +11,73 @@ import Calculator from './component/BoilingVerdict'
 import Tables from './component/Tables'
 import Cards from './component/Cards'
 import Gird from './component/Gird'
-import Buttons from './component/Buttons'
+import Buttons from './component/Buttons.jsx'
 import Menus from './component/Menu'
+import {App,store} from '../src/App'
 import {Greeting,LoginControl} from './component/Greeting'
+import WrappedNormalLoginForm from './component/Forms';
+import Register from './component/Register';
 
 
 
 
+// ReactDOM.render(
+//     <Provider store={store}>
+//         <App/>
+//         {/* <Form/> */}
+//         {/* <Calculator/> */}
+//         {/* <Tables/> */}
+//         {/* <Gird/> */}
+//         {/* <Cards/> */}
+//         {/* <Menus/> */}
+//         {/* <Buttons/> */}
+//         {/* <LoginControl/> */}
+//         {/* <Lists numbers={[1,3,5,7]}/> */}
+//         {/* <Greeting isLoggedIn={true}/> */}
+//         {/* <HelloMeassage name = '刘金辉是傻逼' sex='男'/> */}
+//         {/* <Timer/> */}
+//         {/* <TodoApp/> */}
+//         {/* <MarkdownEditor/> */}
+//     </Provider>,document.getElementById('root'))
 
 
 
 
-class App extends Component{
-    render(){
-        const {text,onChangeText,onButtonClick} = this.props
-        return(
+// const ParamsExample = () => (
+//     <Router>
+//       <div  style= {{backgroundColor:'red',width:500}} >
+//         <h2>账号</h2>
+//         <ul>
+//           <li><Link to="/react-router">React Router</Link></li>
+//           <li><Link to="/leoashin">LeoAshin</Link></li>
+//           <li><Link to="/justjavac">justjavac</Link></li>
+//           <li><Link to="/reacttraining">React Training</Link></li>
+//         </ul>
+//         <Route path="/:id" component={Child}/>
+//       </div>
+//     </Router>
+//   )
+  
+//   const Child = ({ match }) => (
+//     <div>
+//       <h3>ID: {match.params.id}</h3>
+//     </div>
+//   )
+//   export default ParamsExample
+
+//   ReactDOM.render((<ParamsExample/>),document.getElementById('root'))
+
+
+ReactDOM.render((
+        <Router>
             <div>
-                <h1 onClick={onChangeText}>{text}</h1>
-                <button onClick={onButtonClick}>click me {text}</button>
-                <br></br>
-                <br></br>
-                <button onClick={onButtonClick}>不要点我</button>
+                <Route exact path="/" component={ WrappedNormalLoginForm} />
+                {/* <Route exact path="/2" component={Forms}/> */}
+                <Route exact path="/3" component={Register}/>
+                <Route path="/about" component={Buttons}/>    
             </div>
-        )
-    }
-}
-
-
-const onChangeTextAction = {
-    type:'CHANGE_TEXT'
-}
-
-const buttonClickAction = {
-    type:'BUTTON_CLICK'
-}
-
-
-const initialState = {
-    text:'Hello',
-    more:'TRUE'
-}
-
-const reducer = (state = initialState,action) => {
-    switch(action.type){
-        case 'CHANGE_TEXT':
-            let a  = state.text==='Hello'?'world':'Hello'
-            console.log(a)
-            return{
-                text:a
-            }
-        case 'BUTTON_CLICK':
-            let b = 'Hello world'
-            console.log(b)
-            console.log(state)
-            return{
-                text:b,
-                more:'FALSE'
-            }
-        default:
-            return initialState
-    }
-}
-
-
-let store = createStore(reducer)
-
-function mapStateToProps(state){
-    console.log(state)
-    console.log('Redux->COMPONENT')
-    return {text:state.text}
-}
-
-
-function mapDispatchToProps(dispatch){
-
-    console.log(dispatch)
-    console.log('ACTION->COMPONENT')
-    return{
-        onButtonClick:()=>dispatch(buttonClickAction),
-        onChangeText:()=>dispatch(onChangeTextAction)
-
-    }
-}
-
-
-App = connect(mapStateToProps,mapDispatchToProps)(App)
-
-ReactDOM.render(
-    <Provider store={store}>
-        {/* <App/> */}
-        {/* <Form/> */}
-        {/* <Calculator/> */}
-        {/* <Tables/> */}
-        {/* <Gird/> */}
-        {/* <Cards/> */}
-        {/* <Menus/> */}
-        <Buttons/>
-        {/* <LoginControl/> */}
-        {/* <Lists numbers={[1,3,5,7]}/> */}
-        {/* <Greeting isLoggedIn={true}/> */}
-        {/* <HelloMeassage name = '刘金辉是傻逼' sex='男'/> */}
-        {/* <Timer/> */}
-        {/* <TodoApp/> */}
-        {/* <MarkdownEditor/> */}
-    </Provider>,document.getElementById('root'))
+        </Router>
+),document.getElementById('root'))
 
 
 

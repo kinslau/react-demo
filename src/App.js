@@ -1,21 +1,81 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {createStore} from 'redux'
+import {Provider,connect } from 'react-redux'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
+class App extends Component{
+  render(){
+      const {text,onChangeText,onButtonClick} = this.props
+      return(
+          <div>
+              <h1 onClick={onChangeText}>{text}</h1>
+              <button onClick={onButtonClick}>click me {text}</button>
+              <br></br>
+              <br></br>
+              <button onClick={onButtonClick}>不要点我</button>
+          </div>
+      )
   }
 }
 
-export default App;
+
+const onChangeTextAction = {
+  type:'CHANGE_TEXT'
+}
+
+const buttonClickAction = {
+  type:'BUTTON_CLICK'
+}
+
+
+const initialState = {
+  text:'Hello',
+  more:'TRUE'
+}
+
+const reducer = (state = initialState,action) => {
+  switch(action.type){
+      case 'CHANGE_TEXT':
+          let a  = state.text==='Hello'?'world':'Hello'
+          console.log(a)
+          return{
+              text:a
+          }
+      case 'BUTTON_CLICK':
+          let b = 'Hello world'
+          console.log(b)
+          console.log(state)
+          return{
+              text:b,
+              more:'FALSE'
+          }
+      default:
+          return initialState
+  }
+}
+
+
+let store = createStore(reducer)
+
+function mapStateToProps(state){
+  console.log(state)
+  console.log('Redux->COMPONENT')
+  return {text:state.text}
+}
+
+
+function mapDispatchToProps(dispatch){
+
+  console.log(dispatch)
+  console.log('ACTION->COMPONENT')
+  return{
+      onButtonClick:()=>dispatch(buttonClickAction),
+      onChangeText:()=>dispatch(onChangeTextAction)
+
+  }
+}
+
+
+App = connect(mapStateToProps,mapDispatchToProps)(App)
+
+export  {App,store}

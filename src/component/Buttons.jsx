@@ -1,5 +1,6 @@
 import React,{ Component } from 'react'
 import  {Radio, Button,Icon } from 'antd'
+import { BrowserRouter as Router, Route, Switch ,Link } from 'react-router-dom'
 import 'antd/dist/antd.less'
 
 
@@ -29,7 +30,7 @@ class Buttons extends Component{
 
                 <br/>
                 <br/>
-                <Button type="primary" size={size}>Primary</Button>
+                <Button type="primary" size={size}>Primary </Button>
                 <br/>
                 <br/>
                 <Button size={size}>Normal</Button>

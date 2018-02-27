@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { Card , Carousel } from 'antd'
 import 'antd/dist/antd.less'
-// import '../less/style.less'
-import style from '../less/style.css'
+
 
 
 
