@@ -2,6 +2,7 @@ import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Butto
 import React, { Component } from 'react'
 import 'antd/dist/antd.css'
 import 'antd/dist/antd.less'
+import '../less/Register.css'
 
 
 const FormItem = Form.Item
@@ -121,12 +122,12 @@ class RegistrationForm  extends Component{
         ))
 
 
-        const formStyle = {margin:50,width:450}
+        const formStyle = {margin:'auto',maxWidth:500,backgroundColor:'red'}
         
         return(
 
 
-            <Form style={formStyle} onSubmit={this.handleSubmit} layout='horiznetal' >
+            <Form className='main' onSubmit={this.handleSubmit} layout='horizontal' >
                 <FormItem {...formItemLayout} label='E-mail'>
                     {getFieldDecorator('email',{
                         rules:[{ type: 'email', message: 'The input is not valid E-mail!'},{

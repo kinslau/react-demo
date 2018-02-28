@@ -17,6 +17,8 @@ import {App,store} from '../src/App'
 import {Greeting,LoginControl} from './component/Greeting'
 import WrappedNormalLoginForm from './component/Forms';
 import Register from './component/Register';
+import Charts from './component/Chart';
+import SiderDemo from './component/Layout';
 
 
 
@@ -72,8 +74,9 @@ ReactDOM.render((
         <Router>
             <div>
                 <Route exact path="/" component={ WrappedNormalLoginForm} />
-                {/* <Route exact path="/2" component={Forms}/> */}
+                <Route exact path="/2" component={Charts}/>
                 <Route exact path="/3" component={Register}/>
+                <Route path="/4" component={SiderDemo}/>
                 <Route path="/about" component={Buttons}/>    
             </div>
         </Router>
