@@ -1,7 +1,6 @@
 import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete } from 'antd'
 import React, { Component } from 'react'
 import 'antd/dist/antd.css'
-import 'antd/dist/antd.less'
 import '../less/Register.css'
 
 
