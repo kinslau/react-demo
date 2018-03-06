@@ -17,12 +17,8 @@ class App2 extends Component {
                     <li><Link to="/stuff" activeClassName="active">Stuff</Link></li> 
                     <li><Link to="/contact" activeClassName="active">Contact</Link></li> 
                 </ul> 
-                <div className="content">
-                    {/* <Home/> */}
-                    {this.props.children}
-                </div>
-                <div>
-                   
+                <div className="content" style={{marginLeft:'20px',background:'red'}}>
+           
                         <Route path="/home" component={Home} />
                         <Route path="/stuff" component={Stuff} />
                         <Route path="/contact" component={Contact} />

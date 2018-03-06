@@ -5,6 +5,11 @@ import '../less/layout.css'
 import Charts from '../component/Chart' 
 import Menus from '../component/Menu'
 import { getRoutes } from '../utils/utils';
+import Home from '../component/Home';
+import Stuff from '../component/Stuff';
+import Contact from '../component/Contact';
+import Test from '../component/Test';
+import Buttons from '../component/Buttons';
 
 const { Header, Sider, Content ,Footer } = Layout
 
@@ -51,12 +56,13 @@ class SiderDemo extends React.Component {
     console.log("children:___",children)
     return (
       <Layout>
-        <Sider trigger={null} collapsible collapsed={this.state.collapsed} style={{ overflow: 'auto', height: '100vh', left: 0,}}>
+        <Sider trigger={null} collapsible collapsed={this.state.collapsed} style={{ overflow:false, height: '100vh', left: 0}}>
           <div className="logo" />
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} onClick={this.handleClick}>
             <Menu.Item key="1">
               <Icon type="setting" />
-              <span>设置</span>
+              <span>buttons</span>
+              <Link to="/buttons"/>
             </Menu.Item>
             <Menu.Item key="2">
               <Icon type="video-camera" />
@@ -85,14 +91,16 @@ class SiderDemo extends React.Component {
             <Icon  className="trigger" type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'} onClick={this.toggle} />
           </Header>
         
-          <Content className="content"  style={{ overflow: 'initial', left: 0,}}>
-             
-             <div>
-                {children}
+          <Content className="content" style={{border:'3px solid green',margin:'5px',background:'white'}}>
+             <div style={{margin:'24px'} }>
+                        <Route path="/home" component={Home} />
+                        <Route path="/stuff" component={Stuff} />
+                        <Route path="/contact" component={Contact} />
+                        <Route path="/test" component={Test} />
+                        <Route path="/buttons" component={Buttons} />
              </div>
-              
+            
           </Content>
-
           <Footer style={{ textAlign: 'center',background:'green',fontSize:22 }}>
                 React / Antd / Redux  学习 - 2018
           </Footer>

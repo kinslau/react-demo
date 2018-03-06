@@ -81,16 +81,7 @@ import Test from './component/Test';
 
 ReactDOM.render((
         <Router>
-                <div>
-                        <Route path="/"   component={App2} >
-                                <Route path="/home" component={Home} />
-                                <Route path="/stuff" component={Stuff} />
-                                <Route path="/contact" component={Contact} />
-                                <Route path="/test" component={Test} />
-                        </Route>
-
-
-                </div>
+                <Route path="/"   component={SiderDemo} />
         </Router>
 ), document.getElementById('root'))
 

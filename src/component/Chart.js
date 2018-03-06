@@ -66,7 +66,7 @@ class Charts extends Component{
 
 
           return(
-                <Chart  width={200} height = {400}  data={dv} scale={cols} forceFit animate={true}>
+                <Chart height={400} data={dv} scale={cols}  animate={true}>
                     <Legend />
                     <Axis name="month" />
                     <Axis name="temperature" label={{formatter: val => `${val}°C`}}/>
