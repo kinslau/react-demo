@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import Home from './Home';
 import { BrowserRouter as Router, Route, Switch ,Link } from 'react-router-dom'
+import Stuff from './Stuff';
+import Contact from './Contact';
+import Test from './Test';
 
 class App2 extends Component {
 
@@ -17,6 +20,14 @@ class App2 extends Component {
                 <div className="content">
                     {/* <Home/> */}
                     {this.props.children}
+                </div>
+                <div>
+                   
+                        <Route path="/home" component={Home} />
+                        <Route path="/stuff" component={Stuff} />
+                        <Route path="/contact" component={Contact} />
+                        <Route path="/test" component={Test} />
+                    
                 </div>
             </div>
         )
