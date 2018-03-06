@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../less/test.css'
+// import '../less/test.css'
 
 
 class Test extends Component{

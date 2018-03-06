@@ -1,26 +1,33 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter as Router, Route, Switch ,Link } from 'react-router-dom'
-import {Provider,connect } from 'react-redux'
-import HelloMeassage from './component/HelloMeassage'
-import Timer from './component/Timer'
-import TodoApp from './component/TodoApp'
-import MarkdownEditor from './component/MarkdownEditor'
-import Lists from './component/Lists'
-import Calculator from './component/BoilingVerdict'
-import Tables from './component/Tables'
-import Cards from './component/Cards'
-import Gird from './component/Gird'
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import { Provider, connect } from 'react-redux'
+// import HelloMeassage from './component/HelloMeassage'
+// import Timer from './component/Timer'
+// import TodoApp from './component/TodoApp'
+// import MarkdownEditor from './component/MarkdownEditor'
+// import Lists from './component/Lists'
+// import Calculator from './component/BoilingVerdict'
+// import Tables from './component/Tables'
+// import Cards from './component/Cards'
+// import Gird from './component/Gird'
 import Buttons from './component/Buttons.jsx'
-import Menus from './component/Menu'
-import {App,store} from '../src/App'
-import {Greeting,LoginControl} from './component/Greeting'
-import WrappedNormalLoginForm from './component/Forms'
-import Register from './component/Register'
-import Charts from './component/Chart'
-import SiderDemo from '../src/layout/Layout'
-import Test from './component/Test'
-import HomeLayout from './layout/HomeLayout';
+// import Menus from './component/Menu'
+// import {App,store} from '../src/App'
+import App2 from './component/App2'
+// import {Greeting,LoginControl} from './component/Greeting'
+// import WrappedNormalLoginForm from './component/Forms'
+// import Register from './component/Register'
+// import Charts from './component/Chart'
+// import SiderDemo from '../src/layout/Layout'
+// import Test from './component/Test'
+// import HomeLayout from './layout/HomeLayout';
+// import '../src/less/index.css'
+import Home from './component/Home';
+import Stuff from './component/Stuff';
+import Contact from './component/Contact';
+import SiderDemo from './layout/Layout';
+import Test from './component/Test';
 
 
 
@@ -61,7 +68,7 @@ import HomeLayout from './layout/HomeLayout';
 //       </div>
 //     </Router>
 //   )
-  
+
 //   const Child = ({ match }) => (
 //     <div>
 //       <h3>ID: {match.params.id}</h3>
@@ -74,20 +81,16 @@ import HomeLayout from './layout/HomeLayout';
 
 ReactDOM.render((
         <Router>
-            <div>
-             
-                    <Route exact path="/" component={ SiderDemo}/>
-                    <Route exact path="/2" component={Charts}/>
-                    <Route exact path="/3" component={Register}/>
-                    <Route exact path="/4" component={HomeLayout}/>
-                    <Route exact path='/test' component={Test}/>
-                    <Route exact path="/4" component={Buttons}/>  
-              
-          
-            </div>
+                <div>
+                        <Route path="/"   component={SiderDemo} />
+                        <Route path="/home" component={Home} />
+                        <Route path="/stuff" component={Stuff} />
+                        <Route path="/contact" component={Contact} />
+                        <Route path="/test" component={Test} />
 
+                </div>
         </Router>
-),document.getElementById('root'))
+), document.getElementById('root'))
 
 
 

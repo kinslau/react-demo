@@ -48,6 +48,7 @@ class SiderDemo extends React.Component {
 
   render() {
     const {children} = this.props
+    console.log("children:___",children)
     return (
       <Layout>
         <Sider trigger={null} collapsible collapsed={this.state.collapsed} style={{ overflow: 'auto', height: '100vh', left: 0,}}>
@@ -59,20 +60,23 @@ class SiderDemo extends React.Component {
             </Menu.Item>
             <Menu.Item key="2">
               <Icon type="video-camera" />
-              <span>权限</span>
-              <Link to="/4">设置</Link>
+              <span>home</span>
+              <Link to="/home"/>
             </Menu.Item>
             <Menu.Item key="3">
               <Icon type="upload" />
-              <span>报表</span>
+              <span>stuff</span>
+              <Link to="/stuff"/>
             </Menu.Item>
             <Menu.Item key="4">
               <Icon type="camera" />
-              <span>订单中心</span>
+              <span>contact</span>
+              <Link to="/contact"/>
             </Menu.Item>
             <Menu.Item key="5">
               <Icon type="user" />
-              <span>用户管理</span>
+              <span>test</span>
+              <Link to="/test"/>
             </Menu.Item>
           </Menu>
         </Sider>
@@ -81,10 +85,11 @@ class SiderDemo extends React.Component {
             <Icon  className="trigger" type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'} onClick={this.toggle} />
           </Header>
         
-          <Content style={{ margin: '24px 16px 24px 16px', width:'80%',  padding: 10, minHeight: 280}}>
+          <Content className="content"  style={{ overflow: 'initial', left: 0,}}>
              
-                {this.props.children}
-            
+             <div>
+                {children}
+             </div>
               
           </Content>
 
