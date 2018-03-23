@@ -1,40 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
-    <title>React App</title>
-  </head>
 
-  <style type="text/css">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#000000">
+  <title>CSS FlexBox布局</title>
+</head>
 
-
-
-    #parent{
-      position: relative;
-      left: 50px;
-      border: 1px solid red;
-    }
-    #sub1{
-      position: absolute;
-      top: 50px;
-      left: 5px;
-      border: 1px solid rgb(0, 41, 128);
-    }
-
-    #sub2{
-      border: 1px solid green;
-    }
-
+<style type="text/css">
+  ul {
+    display: inline-flex;
+    border: 1px solid red;
+    padding: 10px;
+    list-style: none;
+    background-color: #19739c; 
+    justify-content:flex-start;
     
-  </style>
+    height: 300px;
 
-  <body>
-      <div id="parent">
-          <div id="sub1">sub1</div>
-          <div id="sub2">sub2</div>
-     </div>
+ 
+  }
 
-  </body>
+  li {
+    background-color: #8cacea;
+    width: 100px;
+    height: 100px;
+    margin: 8px;
+    padding: 4px;
+    align-items:baseline;
+  }
+
+</style>
+
+<body>
+  <div id="parent">
+    <ul>
+      <li>i am list 1</li>
+      <li>i am list 2</li>
+      <li>i am list 3</li>
+      <li>i am list 1</li>
+      <li>i am list 2</li>
+      <li>i am list 3</li>
+    </ul>
+  </div>
+</body>
+
 </html>

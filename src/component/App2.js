@@ -17,7 +17,7 @@ class App2 extends Component {
                     <li><Link to="/stuff" activeClassName="active">Stuff</Link></li> 
                     <li><Link to="/contact" activeClassName="active">Contact</Link></li> 
                 </ul> 
-                <div className="content" style={{marginLeft:'20px',background:'red'}}>
+                <div className="content">
            
                         <Route path="/home" component={Home} />
                         <Route path="/stuff" component={Stuff} />

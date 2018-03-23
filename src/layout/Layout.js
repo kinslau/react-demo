@@ -10,6 +10,7 @@ import Stuff from '../component/Stuff';
 import Contact from '../component/Contact';
 import Test from '../component/Test';
 import Buttons from '../component/Buttons';
+import UseRate from '../component/pages/useRate';
 
 const { Header, Sider, Content ,Footer } = Layout
 
@@ -23,6 +24,7 @@ class SiderDemo extends React.Component {
   state = {
     collapsed: false,
   }
+
 
   toggle = () => {
     this.setState({
@@ -52,8 +54,9 @@ class SiderDemo extends React.Component {
 
 
   render() {
-    const {children} = this.props
-    console.log("children:___",children)
+    const {store} = this.props
+
+    console.log("STORE:___",store)
     return (
       <Layout>
         <Sider trigger={null} collapsible collapsed={this.state.collapsed} style={{ overflow:false, height: '100vh', left: 0}}>
@@ -81,8 +84,8 @@ class SiderDemo extends React.Component {
             </Menu.Item>
             <Menu.Item key="5">
               <Icon type="user" />
-              <span>test</span>
-              <Link to="/test"/>
+              <span>场地利用率</span>
+              <Link to="/useRate"/>
             </Menu.Item>
           </Menu>
         </Sider>
@@ -91,17 +94,18 @@ class SiderDemo extends React.Component {
             <Icon  className="trigger" type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'} onClick={this.toggle} />
           </Header>
         
-          <Content className="content" style={{border:'3px solid green',margin:'5px',background:'white'}}>
+          <Content className="content" style={{border:'1px solid gray',margin:'5px',background:'white'}}>
              <div style={{margin:'24px'} }>
                         <Route path="/home" component={Home} />
                         <Route path="/stuff" component={Stuff} />
                         <Route path="/contact" component={Contact} />
                         <Route path="/test" component={Test} />
                         <Route path="/buttons" component={Buttons} />
+                        <Route path='/useRate' component={UseRate}/>
              </div>
             
           </Content>
-          <Footer style={{ textAlign: 'center',background:'green',fontSize:22 }}>
+          <Footer style={{ textAlign: 'center',background:'red' }}>
                 React / Antd / Redux  学习 - 2018
           </Footer>
         </Layout>

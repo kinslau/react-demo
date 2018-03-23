@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { Layout, Menu, Icon ,Radio } from 'antd'
 import { BrowserRouter as Router, Route, Switch, Link , Redirect  } from 'react-router-dom'
-import Charts from './Chart';
-import Menus from './Menu';
+import Charts from './Chart'
+import Menus from './Menu'
 
 
 
@@ -21,9 +21,6 @@ class Home extends Component{
     
     handleSizeChange = (e) => {
         console.log('-----',e.target.value)
-        
-        //this.setState({ size: e.target.value })
-        // return (<Redirect to='/test'  />)
         return (<Redirect to='/home/menus'/>)
     }
 
