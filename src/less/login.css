@@ -1,0 +1,89 @@
+.main {
+    display: flex;
+    background-image: url(http://pic1.win4000.com/wallpaper/b/535f45aedf718.jpg);
+    animation-duration: 5s;
+    animation-timing-function: linear；
+}
+
+
+
+
+.board{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width:576px;
+    height: 360px;
+    border-radius: 15px;
+    background: rgba(216,216,216,0.6); 
+}
+
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+  
+}
+
+
+
+
+.main input[type="text"]:focus,input[type="password"]:focus{
+    border-color:rgba(0, 255, 191, 0.651);
+    -webkit-box-shadow:0 0 18px rgba(255,153,18,3);
+}
+
+
+
+
+.login_title {
+    margin-top: 50px;
+    align-self: center; 
+}
+
+.username_bable {
+    margin-top: 20px;
+    align-self: center; 
+    width: 240px;
+}
+
+.password_bable {
+    margin-top: 0;
+    align-self: center; 
+    width: 240px;
+}
+.login_button {
+    margin-top: 30px;
+    align-self: center; 
+}
+
+
+.login-form-button {
+    margin-top: 0;
+    align-self: center;
+    width: 240px;
+    height: 36px;
+}
+
+
+
+@-webkit-keyframes kenburns-1 {
+    0% {
+        opacity: 1;     /*规定不透明度*/
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+    27.861% {
+        opacity: 0;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    80.435% {
+        opacity: 0;
+        -webkit-transform: scale(1.21);
+        transform: scale(1.21);
+    }
+    100% {
+        opacity: 1;
+    }
+}

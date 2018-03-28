@@ -1,22 +1,21 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-
+import '../less/gird.css'
 
 class Stuff extends Component{
     render(){
         return(
-            <div> 
-                <h2>STUFF</h2> 
-                <p>Mauris sem velit, vehicula eget sodales vitae, rhoncus eget sapien:</p> 
-                <ol> 
-                    <li>Nulla pulvinar diam</li> 
-                    <li>Facilisis bibendum</li> 
-                    <li>Vestibulum vulputate</li> 
-                    <li>Eget erat</li> 
-                    <li>Id porttitor</li> 
-                </ol> 
-            </div>
-
+            <section className="gird-1">
+                <div className="item1">1</div>
+                <div className="item2">2</div>
+                <div className="item3">3</div>
+                <div className="item4">4</div>
+                <div className="item5">5</div>
+                <div className="item6">6</div>
+                <div className="item7">7</div>
+                <div className="item8">8</div>
+                <div className="item9">9</div>
+            </section>
         )
     }
 }

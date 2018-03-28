@@ -1,19 +1,60 @@
+
+
+
+.header {
+  display: flex;
+  
+  align-items: center；
+}
+
 .trigger {
     font-size: 18px;
     line-height: 64px;
-    padding: 0 24px;
+    padding-left: 24px;
     cursor: pointer;
-    transition: color .3s;
+    transition: color .5s;
+    align-self: center;
+    margin-right: auto;
   }
   
 .trigger:hover {
     color: green;
   }
+
+
+.exit{
+
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color .5s;
+  align-self: center;
+
+}
   
+
+.exit:hover{
+
+  color: darkcyan;
+}
+
 .logo {
     height: 32px;
     background: crimson;
     margin: 16px;
   }
 
+  .main{
+    height: 100vh;
+  }
+
+
+  .slider{
+    border: 10 solid red;
+  }
+
+
+
+ 
   

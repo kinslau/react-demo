@@ -1,19 +1,22 @@
 .parent ul {
     display: flex;
     border: 1px solid red;
-    padding: 10px;
     list-style: none;
     background-color: #e8e8e9; 
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    flex-direction: row;
+
   }
 
 .parent li {
     background-color: #8cacea;
     margin: 8px;
     padding: 4px;
-    width: 100px;
-    height: 100px;
-    flex-grow: 1;
-    flex-shrink: 0;
+    flex: 0 0 auto ;
+  }
+
+
+  .parent li:nth-child(1) {
+
+    margin-right: auto;
+
   }

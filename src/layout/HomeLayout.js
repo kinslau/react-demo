@@ -11,8 +11,6 @@ const MenuItem = Menu.Item
 class HomeLayout extends Component{
 
     render(){
-        const {children} = this.props
-        console.log("——————————————————————————--",children)
 
 
         return(

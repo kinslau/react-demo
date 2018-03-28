@@ -1,7 +1,7 @@
 import React,{ Component } from 'react'
 import {Menu ,Icon} from 'antd'
 import 'antd/dist/antd.css'
-
+import { connect } from 'react-redux'
 
 const SubMenu = Menu.SubMenu
 const MenuItemGroup = Menu.ItemGroup
@@ -54,5 +54,5 @@ class Menus extends Component{
     }
 }
 
-
+// Menus = connect(mapStateToProps)(Menus)
 export default Menus

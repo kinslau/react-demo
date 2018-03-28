@@ -1,0 +1,36 @@
+.gird-1 {
+    display: grid;
+    grid-template-columns: 150px 20px 150px 20px 150px;
+    grid-template-rows: auto 30px auto 20px auto;
+}
+
+
+.item1 {
+    background: red;
+    grid-column: 1;
+    grid-row: 1;
+}
+.item2 {
+    background: purple;
+}
+.item3 {
+    background: peru;
+}
+.item4 {
+    background: palegoldenrod;
+}
+.item5 {
+    background: orange;
+}
+.item6 {
+    background: midnightblue;
+}
+.item7 {
+    background: orchid;
+}
+.item8 {
+    background: silver;
+}
+.item9 {
+    background: royalblue
+}

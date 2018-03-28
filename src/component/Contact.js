@@ -12,8 +12,11 @@ class Contact extends Component {
             <div>
                 <div className="parent">
                     <ul>
-                        <li>i am list 1</li>
-           
+                        <li>Branding</li> 
+                        <li>Home</li> 
+                        <li>Services</li> 
+                        <li>About</li>
+                        <li>Contact</li>
                     </ul>
                 </div>
                 <Link to="/home" >跳转到主页HOME</Link>

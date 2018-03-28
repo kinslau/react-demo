@@ -4,34 +4,10 @@ import { DataSet } from '@antv/data-set'
 class Charts extends Component{
 
 
+    constructor(props){
+      super(props)
 
-    // render(){
-    //     const data = [
-    //         { genre: 'Sports', sold: 275, income: 2300 },
-    //         { genre: 'Strategy', sold: 115, income: 667 },
-    //         { genre: 'Action', sold: 120, income: 982 },
-    //         { genre: 'Shooter', sold: 350, income: 5271 },
-    //         { genre: 'Other', sold: 150, income: 3710 }
-    //       ]
-
-    //       const cols = {
-    //         sold: { alias: '销售量' },
-    //         genre: { alias: '游戏种类' }
-    //       }
-
-    //       return(
-    //         <Chart width={640} height={400} data={data} scale={cols}>
-    //             <Axis name="genre" />
-    //             <Axis name="sold" />
-    //             <Legend position="top" dy={-20} />
-    //             <Tooltip />
-    //             <Geom type="interval" position="genre*sold" color="genre" />
-    //         </Chart>
-    //       )
-    // }
-    
-
-
+    }
 
     render(){
         const data = [
@@ -65,8 +41,9 @@ class Charts extends Component{
           }
 
 
+
           return(
-                <Chart height={400} data={dv} scale={cols}  animate={true}>
+                <Chart className='C1' height={400} width={1000}  data={dv} scale={cols}  animate={true} style={{margin:'30px'}}>
                     <Legend />
                     <Axis name="month" />
                     <Axis name="temperature" label={{formatter: val => `${val}°C`}}/>
@@ -74,72 +51,9 @@ class Charts extends Component{
                     <Geom type="line" position="month*temperature" size={2} color={'city'} />
                     <Geom type='point' position="month*temperature" size={4} shape={'circle'} color={'city'} style={{ stroke: '#fff', lineWidth: 1}} />
                 </Chart>
-
           )
     }
 
-
-
-    // render(){
-    //     const { DataView } = DataSet;
-    //     const data = [
-    //       { item: '事例一', count: 40 },
-    //       { item: '事例二', count: 21 },
-    //       { item: '事例三', count: 17 },
-    //       { item: '事例四', count: 13 },
-    //       { item: '事例五', count: 9 }
-    //     ]
-
-    //     const dv = new DataView()
-
-    //     dv.source(data).transform({
-    //       type: 'percent',
-    //       field: 'count',
-    //       dimension: 'item',
-    //       as: 'percent'
-    //     })
-
-    //     const cols = {
-    //       percent: {
-    //         formatter: val => {
-    //           val = (val * 100) + '%'
-    //           return val
-    //         }
-    //       }
-    //     }   
-
-    //     return(
-    //         <Chart height={window.innerHeight} data={dv} scale={cols} padding={[ 80, 100, 80, 80 ]} forceFit>
-    //         <Coord type='theta' radius={0.75} />
-    //         <Axis name="percent" />
-    //         <Legend position='right' offsetY={-window.innerHeight / 2 + 120} offsetX={-100} />
-    //         <Tooltip 
-    //           showTitle={false} 
-    //           itemTpl='<li><span style="background-color:{color};" class="g2-tooltip-marker"></span>{name}: {value}</li>'
-    //           />
-    //         <Geom
-    //           type="intervalStack"
-    //           position="percent"
-    //           color='item'
-    //           tooltip={['item*percent',(item, percent) => {
-    //             percent = percent * 100 + '%';
-    //             return {
-    //               name: item,
-    //               value: percent
-    //             };
-    //           }]}
-    //           style={{lineWidth: 1,stroke: '#fff'}}
-    //           >
-    //           <Label content='percent' offset={-40} textStyle={{
-    //               rotate: 0,
-    //               textAlign: 'center',
-    //               shadowBlur: 2,
-    //               shadowColor: 'rgba(0, 0, 0, .45)'
-    //             }} />
-    //         </Geom>
-    //       </Chart>
-    //     )
-    // }
 }
 
 
