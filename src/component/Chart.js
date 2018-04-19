@@ -39,11 +39,9 @@ class Charts extends Component{
               range: [ 0, 1 ]
             }
           }
-
-
-
+          var w = document.documentElement.clientWidth || document.body.clientWidth
           return(
-                <Chart className='C1' height={400} width={1000}  data={dv} scale={cols}  animate={true} style={{margin:'30px'}}>
+                <Chart className='C1' height={400} width={ w*0.7 }  data={dv} scale={cols}  animate={true} style={{margin:'30px'}}>
                     <Legend />
                     <Axis name="month" />
                     <Axis name="temperature" label={{formatter: val => `${val}°C`}}/>

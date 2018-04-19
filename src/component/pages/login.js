@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter as Router, Route, Switch ,Link , Redirect,withRouter  } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, Link, Redirect, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import axios from 'axios'
 import '../../less/login.css'
-import { Form, Icon, Input, Button } from 'antd'
+import { Form, Icon, Input, Button, Alert } from 'antd'
 
 
 const FormItem = Form.Item
@@ -19,42 +19,32 @@ function mapStateToProps(state) {
 connect()
 class Login extends Component {
 
-    constructor(props,context){
-        super(props,context)
+    constructor(props, context) {
+        super(props, context)
         this.handleSubmit = this.handleSubmit.bind(this);
     }
- 
 
-    handleSubmit(e){
+
+    handleSubmit(e) {
         e.preventDefault();
         // this.props.form.validateFields((err, values) => {
-        //     if (!err) {
-        //         console.log('Received values of form: ', values);
-        //         axios.post('http://nnyyg.sportgoing.com/clubmanager/sys/login', {
-        //             username: 'admin',
-        //             password: 'yundongshi'
-        //         })
-        //             .then(res => {
-        //                 console.log(res)
-        //             })
-        //             .catch(err => {
-        //                 console.log(err)
-        //             })
+        
+        //     if (values.username !== 'admin' || values.password !== 'yundongshi') {
+        //         alert('密码错误')
+        //     } else {
+                
         //     }
         // }
         // )
-    
-        
-        console.log('---',this.props.store)
-        console.log('---',this.context.store)
-        this.props.history.push('/home/charts')
 
+
+        this.props.history.push('/home/charts')
     }
 
 
 
 
-  
+
 
     render() {
         const { getFieldDecorator } = this.props.form;

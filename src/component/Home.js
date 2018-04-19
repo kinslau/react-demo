@@ -61,18 +61,11 @@ class Home extends Component {
                 <p>Duis a turpis sed lacus dapibus elementum sed eu lectus.</p>
 
                 <Radio.Group onChange={this.handleSizeChange}>
-                    <Radio.Button value="/home/timer" > 计时器  </Radio.Button>
+                    <Radio.Button value="/home/timer"> 计时器  </Radio.Button>
                     <Radio.Button value="/home/menus">菜单</Radio.Button>
                     <Radio.Button value="/home/charts">图表</Radio.Button>
                 </Radio.Group>
                 <hr />
-
-                {/* <Route path='/home/charts' component={Charts} />
-                <Route path="/home/menus" component={Menus} />
-                <Route path="/home/timer" component={Timer} /> */}
-              
-
-
             </div>
         )
     }

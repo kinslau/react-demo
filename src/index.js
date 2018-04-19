@@ -15,10 +15,6 @@ import Login from './component/pages/login';
 
 
 
-
-
-
-
 let store = createStore(todoApp)
 const unsubscribe = store.subscribe(() =>
   console.log(store.getState())

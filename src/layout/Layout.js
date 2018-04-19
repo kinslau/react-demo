@@ -13,6 +13,7 @@ import Buttons from '../component/Buttons'
 import UseRate from '../component/pages/useRate'
 import Calculator from '../component/BoilingVerdict'
 import Timer from '../component/Timer'
+import TimeTask from '../component/TimeTask'
 
 const { Header, Sider, Content ,Footer } = Layout
 
@@ -67,6 +68,11 @@ class SiderDemo extends React.Component {
         <Sider className="slider" trigger={null} collapsible collapsed={this.state.collapsed} >
           <div className="logo" />
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} onClick={this.handleClick} style={{height:'90vh'}}>
+            <Menu.Item key="0">
+              <Icon type="home" />
+              <span>定时任务</span>
+              <Link to="/time"/>
+            </Menu.Item>
             <Menu.Item key="1">
               <Icon type="setting" />
               <span>设置</span>
@@ -122,6 +128,7 @@ class SiderDemo extends React.Component {
                         <Route path='/home/charts' component={Charts} />
                         <Route path="/home/menus" component={Menus} />
                         <Route path="/home/timer" component={Timer} />
+                        <Route path="/time" component={TimeTask} />
              </div>
             
           </Content>
