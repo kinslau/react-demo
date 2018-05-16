@@ -1,41 +1,47 @@
-import { Form, Icon, Input, Button, Checkbox, DatePicker, Select } from 'antd'
-import React, { Component } from 'react'
+import { Form, Icon, Input, Button, DatePicker, Select } from 'antd'
+import React from 'react'
 import '../less/TimeTask.css'
-import moment from 'moment';
-import 'moment/locale/zh-cn';
+import moment from 'moment'
+import 'moment/locale/zh-cn'
 import axios from 'axios'
-
+import { info, success, error, warning } from '../component/ModalInfo'
 
 moment.locale('zh-cn');
-const FormItem = Form.Item;
-const Option = Select.Option;
+const FormItem = Form.Item
+const Option = Select.Option
 
 class NormalLoginForm extends React.Component {
 
 
-  componentWillMount(){
-    const arr = this.getClubs()
-    console.log(arr)
-    this.setState({'clubs':arr})
-    console.log(this.state)
-    
+  constructor(props) {
+    super(props)
+    this.state = { isClickable: true, clubs: [] }
+  }
+
+  componentDidMount() {
+    this.getClubs()
   }
 
   handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
+
     this.props.form.validateFields((err, values) => {
       if (!err) {
+        this.setState({ isClickable: false })
         console.log('Received values of form: ', values)
         const d = values.startTime._d
-        
-        const youWant = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();  
-        values.startTime =  youWant
+
+        const youWant = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+        values.startTime = youWant
         axios.post('/sys/reCalculate', values)
           .then(res => {
             console.log(res)
+            this.setState({ isClickable: true })
+            // success(res.data)
           })
           .catch(err => {
             console.log(err)
+            this.setState({ isClickable: true })
           })
       }
     })
@@ -51,8 +57,9 @@ class NormalLoginForm extends React.Component {
   getClubs = () => {
     axios.get('/sys/clubs')
       .then(res => {
-        console.log(res.data)
-        return res.data
+
+        const data = JSON.stringify(res.data.clubs)
+        this.setState({ clubs: res.data.clubs, isClickable: true })
       })
       .catch(err => {
         console.log(err)
@@ -63,8 +70,10 @@ class NormalLoginForm extends React.Component {
 
   render() {
     const { getFieldDecorator } = this.props.form
-    const {clubs} = this.state
-    // const options = clubs.map((e) => <Option value={e.id}>{e.clubName}</Option>)
+    const list = this.state.clubs
+    console.log("clubs_arr", list)
+
+
     return (
       <Form onSubmit={this.handleSubmit} className="TimeTaskForm">
 
@@ -75,22 +84,32 @@ class NormalLoginForm extends React.Component {
           )}
 
         </FormItem>
-        <FormItem>
+        {/* <FormItem>
           {getFieldDecorator('clubId', {
             rules: [{ required: true, message: '请输入场馆ID' }]
           })(
-          //   <Select placeholder="选择要执行的任务">
-          //     {/* {
-          //       options
-          //     } */}
-          //     <Option value="1">第三方支付账单</Option>
-          //     <Option value="2" disabled>清除子卡使用次数</Option>
-          //     <Option value="3" disabled>会员激活有效天数</Option>
-          //     <Option value="4" disabled>重置线上售票次数</Option>
-          // </Select>
-          < Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="text" placeholder="请输入场馆" />
+            < Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="text" placeholder="请输入场馆" />
+          )}
+        </FormItem> */}
+
+
+        <FormItem>
+          {getFieldDecorator('clubId', {
+            rules: [
+              { required: true, message: '选择场馆' }
+            ]
+          })(
+            <Select placeholder="选择要重新执行定时任务的场馆">
+              {
+                list.map(e => {
+                  return  <Option key={e.id} value={e.id}>{e.clubName}</Option>
+                })
+              }
+            </Select>
           )}
         </FormItem>
+
+
 
         <FormItem>
           {getFieldDecorator('taskId', {
@@ -111,14 +130,14 @@ class NormalLoginForm extends React.Component {
               <Option value="10" >晚上11点29  场馆经营项目详情分析统计</Option>
               <Option value="11" >晚上11点39  场馆经营分析统计</Option>
               <Option value="12" >晚上11点55  场地使用率</Option>
-              <Option value="13" >晚上2点40  新增体验券</Option>
+              <Option value="13" >凌晨3分   新增体验券</Option>
             </Select>
           )}
         </FormItem>
 
 
         <FormItem>
-          <Button type="primary" htmlType="submit" className="login-form-button">
+          <Button type="primary" htmlType="submit" loading={!this.state.isClickable} className="login-form-button">
             提交
           </Button>
         </FormItem>

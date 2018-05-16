@@ -1,6 +1,7 @@
 let nextTodoId = 0
 
-export const addTodo = text => {
+
+function addTodo(text){
   return {
     type: 'ADD_TODO',
     id: nextTodoId++,
@@ -8,16 +9,37 @@ export const addTodo = text => {
   }
 }
 
-export const setVisibilityFilter = filter => {
-    return {
-      type: 'SET_VISIBILITY_FILTER',
-      filter
-    }
+
+function setVisibilityFilter(filter){
+  return {
+    type: 'SET_VISIBILITY_FILTER',
+    filter
+  }
 }
 
-export const toggleTodo = id => {
-    return {
-      type: 'TOGGLE_TODO',
-      id
-    }
+function toggleTodo(id){
+  return {
+    type: 'TOGGLE_TODO',
+    id
+  }
 }
+
+
+function loginOrExit(login){
+  if(login){
+    return {
+      type:'LOGIN',
+      value:true
+    }
+  }else{
+    return {
+      type:'LOGIN',
+      value:false
+    }
+  }
+
+}
+
+
+
+export  {addTodo,setVisibilityFilter,toggleTodo,loginOrExit}

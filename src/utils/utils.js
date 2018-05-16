@@ -1,4 +1,5 @@
-import moment from 'moment';
+import moment from 'moment'
+import md5 from 'js-md5'
 
 export function fixedZero(val) {
   return val * 1 < 10 ? `0${val}` : val;
@@ -156,4 +157,20 @@ const reg = /(((^https?:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-
 
 export function isUrl(path) {
   return reg.test(path);
+}
+
+
+export function deleteAllCookies() {
+  var cookies = document.cookie.split(";");
+  for (var i = 0; i < cookies.length; i++) {
+      var cookie = cookies[i];
+      var eqPos = cookie.indexOf("=");
+      var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+      document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+  }
+}
+
+
+export function toMd5(url){
+  return md5(url)
 }

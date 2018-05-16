@@ -1,0 +1,90 @@
+zookeeper:  .2服务器  /usr/local/webserver/zookeeper-3.4.8
+
+
+广西南宁项目：
+    场馆系统路径 ：219服务器  /root/yds/nanning/tomcat_nanning_main  数据库连接：club_nn  
+    定时任务：     219服务器  /root/yds/nanning/tomcat_nanning_time
+
+汉江湾项目：
+    场馆系统路径 ：219服务器   /root/yds/hjw/tomcat_hjw_main  数据库连接：club_hjw
+    定时任务：     219服务器  /root/yds/hjw/tomcat_hjw_time
+    闸机云服务 ：220服务器  /data/service/tomcat_init/hjwdatasync
+
+秭归/江夏/宁乡风云：
+    场馆系统路径： .2服务器  /usr/local/webserver/tomcat_zigui  数据库连接：clubbig
+    闸机云服务： .2服务器    /usr/local/webserver/datasync
+    定时任务：   60服务器   /data/timemoni
+    人流监控：   .2        /usr/local/webserver/flowmonitor
+
+新奥龙/伊斯博特/8中.. :                                   
+    场馆系统路径： .2服务器   /usr/local/webserver/tomcat_whxal  数据库连接：clubbig      /usr/local/webserver/tomcat_newtg/tomcat_newtg  8中门禁  
+    闸机云服务：   .2服务器  /usr/local/webserver/datasync
+    定时任务：     60服务器  /data/timemoni
+    灯控服务：     .2服务器  /usr/local/webserver/tomcat_lightCtrl
+
+智旅冰雪：
+    场馆系统服务： .2服务器  /usr/local/webserver/tomcat_shbx  数据库连接 shanghai_bx
+    闸机云服务：   .2服务器  /usr/local/webserver/datasync_shbx
+    定时任务：    .2服务器  /usr/local/webserver/time_bx
+
+智旅假账：
+    场馆系统 ： 60服务器  /usr/local/ceshitomcat/cstomcat  数据库连接 zhzl
+
+
+
+四维：
+    场馆系统服务： 219服务器  /usr/local/webserver/apache-tomcat-8.0.36  数据库连接 clubbig
+
+
+农大：
+
+
+
+
+
+server {
+        listen       80;
+        listen       443 ssl;
+        ssl on;
+        server_name  gxtyzxzg.sportgoing.com;
+        ssl_certificate      /usr/local/webserver/nginx/conf/server.crt;
+        ssl_certificate_key  /usr/local/webserver/nginx/conf/server.key;
+        add_header Strict-Transport-Security "max-age=31536000";
+
+    
+         location / {
+            root   /data/html/clubWeb_nanning;
+            index  index.html index.htm;
+         }
+        location /clubmanager{
+            proxy_set_header domainname "fyydzx.sportgoing.com";
+            proxy_pass   http://localhost:8080/clubmanager;
+      
+        }
+
+        location /easyWeb {
+             proxy_pass http://localhost:8082/jobmanager-1.0-SNAPSHOT/;
+        }
+
+
+        location /download {
+               proxy_pass http://localhost:8080/download;
+        }
+
+        location /clubmanager/sys/checkWxOrderPay{
+                        proxy_pass  https://api.mch.weixin.qq.com/pay/orderquery;
+        }
+
+        location = /50x.html {
+            root   html;
+        }
+    }
+
+
+
+ 
+
+
+
+
+

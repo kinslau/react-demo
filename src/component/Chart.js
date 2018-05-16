@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { Chart, Label, Geom, Axis, Tooltip, Legend, Coord } from 'bizcharts'
 import { DataSet } from '@antv/data-set'
+
+
 class Charts extends Component{
-
-
+  
     constructor(props){
       super(props)
-
     }
 
     render(){

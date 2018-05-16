@@ -1,15 +1,9 @@
 import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
 import  { Row, Col, Card , Icon } from 'antd'
-
 const { Meta } = Card
 
 
-
-
-
 class UseRate extends Component{
-
 
     render(){
         return (

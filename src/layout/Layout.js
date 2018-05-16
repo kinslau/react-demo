@@ -1,29 +1,25 @@
-import  {Button, Layout, Menu, Icon } from 'antd'
+import  { Layout, Menu, Icon } from 'antd'
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Switch ,Link , Redirect  } from 'react-router-dom'
+import { Route ,Link } from 'react-router-dom'
 import '../less/layout.css'
 import Charts from '../component/Chart' 
 import Menus from '../component/Menu'
-import { getRoutes } from '../utils/utils'
+import {deleteAllCookies } from '../utils/utils'
 import Home from '../component/Home'
 import Stuff from '../component/Stuff'
 import Contact from '../component/Contact'
-import Test from '../component/Test'
 import Buttons from '../component/Buttons'
 import UseRate from '../component/pages/useRate'
 import Calculator from '../component/BoilingVerdict'
 import Timer from '../component/Timer'
 import TimeTask from '../component/TimeTask'
+import App2 from '../component/App2'
+import axios from 'axios'
 
 const { Header, Sider, Content ,Footer } = Layout
 
-const redirectData = []
 
-
-
-
-
-class SiderDemo extends React.Component {
+class SiderDemo extends Component {
   state = {
     collapsed: false,
   }
@@ -36,6 +32,15 @@ class SiderDemo extends React.Component {
   }
 
   exit = () => {
+
+    deleteAllCookies()
+    axios.post('clubmanager/sys/logout')
+      .then(res =>{
+        console.log(res)
+      })
+      .catch(err =>{
+        console.log(err)
+      })
     this.props.history.push('/login')
   }
 
@@ -61,13 +66,12 @@ class SiderDemo extends React.Component {
 
 
   render() {
-    const {store} = this.props
 
     return (
       <Layout className="main">
         <Sider className="slider" trigger={null} collapsible collapsed={this.state.collapsed} >
           <div className="logo" />
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} onClick={this.handleClick} style={{height:'90vh'}}>
+          <Menu theme="dark" mode="inline" defaultSelectedKeys={['0']} onClick={this.handleClick} style={{height:'90vh'}}>
             <Menu.Item key="0">
               <Icon type="home" />
               <span>定时任务</span>
@@ -85,8 +89,8 @@ class SiderDemo extends React.Component {
             </Menu.Item>
             <Menu.Item key="3">
               <Icon type="upload" />
-              <span>文件</span>
-              <Link to="/stuff"/>
+              <span>AddToDo</span>
+              <Link to="/redux"/>
             </Menu.Item>
             <Menu.Item key="4">
               <Icon type="camera" />
@@ -121,7 +125,6 @@ class SiderDemo extends React.Component {
                         <Route path="/home" component={Home} />
                         <Route path="/stuff" component={Stuff} />
                         <Route path="/contact" component={Contact} />
-                        <Route path="/test" component={Test} />
                         <Route path="/buttons" component={Buttons} />
                         <Route path='/useRate' component={UseRate}/>
                         <Route path='/calculator' component={Calculator}/>
@@ -129,6 +132,7 @@ class SiderDemo extends React.Component {
                         <Route path="/home/menus" component={Menus} />
                         <Route path="/home/timer" component={Timer} />
                         <Route path="/time" component={TimeTask} />
+                        <Route path="/redux" component={App2} />
              </div>
             
           </Content>

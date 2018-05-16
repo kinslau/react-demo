@@ -1,18 +1,9 @@
 import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
-import { Layout, Menu, Icon, Radio } from 'antd'
-import { BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom'
-import Charts from './Chart'
-import Menus from './Menu'
+import { Radio } from 'antd'
 import '../less/home.css'
-import Timer from './Timer';
 
 
 
-
-function handChange(value) {
-    console.log('Selected: ${value}')
-}
 
 class Home extends Component {
 
@@ -29,7 +20,6 @@ class Home extends Component {
 
     handleSizeChange(e) {
         console.log(e.target.value)
-        // this.props.history.push('/home/charts')
         this.props.history.push(e.target.value)
     }
 
@@ -37,17 +27,7 @@ class Home extends Component {
 
     render() {
 
-        var path = {
-            pathname: "/home/charts",
-            state: {
-                x: 800,
-                y: 400
-            }
-        }
-        var data = { x: 800, y: 400 }
-        data = JSON.stringify(data)
-        var path = `/home/charts/${data}`
-
+    
 
         return (
             <div style={{ margin: '20px', position: 'relative', fontSize: 20 }}>
