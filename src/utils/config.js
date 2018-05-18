@@ -1,4 +1,8 @@
 import axios from 'axios'
+import { info, success, error, warning } from '../component/ModalInfo'
+
+
+
 
 axios.interceptors.request.use(config => {
 
@@ -25,7 +29,6 @@ axios.interceptors.request.use(config => {
 axios.interceptors.response.use(config => {
     console.log('加载完成')
     const data = config.data
-
     return config
 }, err => {
     console.log('响应失败')
@@ -79,7 +82,8 @@ axios.interceptors.response.use(config => {
         default:
             break
     }
-    console.log(err.message)
+    error('服务出了点小状况')
+
     return Promise.reject(err)
 })
 

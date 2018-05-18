@@ -1,10 +1,10 @@
 import { Form, Icon, Input, Button, DatePicker, Select } from 'antd'
 import React from 'react'
-import '../less/TimeTask.css'
+import '../../less/TimeTask.css'
 import moment from 'moment'
 import 'moment/locale/zh-cn'
 import axios from 'axios'
-import { info, success, error, warning } from '../component/ModalInfo'
+import { info, success, error, warning } from '../../component/ModalInfo'
 
 moment.locale('zh-cn');
 const FormItem = Form.Item
@@ -37,7 +37,7 @@ class NormalLoginForm extends React.Component {
           .then(res => {
             console.log(res)
             this.setState({ isClickable: true })
-            // success(res.data)
+            success(res.data.data)
           })
           .catch(err => {
             console.log(err)
@@ -67,12 +67,9 @@ class NormalLoginForm extends React.Component {
   }
 
 
-
   render() {
     const { getFieldDecorator } = this.props.form
     const list = this.state.clubs
-    console.log("clubs_arr", list)
-
 
     return (
       <Form onSubmit={this.handleSubmit} className="TimeTaskForm">
@@ -84,14 +81,6 @@ class NormalLoginForm extends React.Component {
           )}
 
         </FormItem>
-        {/* <FormItem>
-          {getFieldDecorator('clubId', {
-            rules: [{ required: true, message: '请输入场馆ID' }]
-          })(
-            < Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="text" placeholder="请输入场馆" />
-          )}
-        </FormItem> */}
-
 
         <FormItem>
           {getFieldDecorator('clubId', {

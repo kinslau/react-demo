@@ -12,9 +12,10 @@ import Buttons from '../component/Buttons'
 import UseRate from '../component/pages/useRate'
 import Calculator from '../component/BoilingVerdict'
 import Timer from '../component/Timer'
-import TimeTask from '../component/TimeTask'
 import App2 from '../component/App2'
 import axios from 'axios'
+import TimeTask from '../component/pages/TimeTask';
+import PrintTest from '../component/PrintTest';
 
 const { Header, Sider, Content ,Footer } = Layout
 
@@ -99,8 +100,8 @@ class SiderDemo extends Component {
             </Menu.Item>
             <Menu.Item key="5">
               <Icon type="user" />
-              <span>场地利用率</span>
-              <Link to="/useRate"/>
+              <span>打印</span>
+              <Link to="/print"/>
             </Menu.Item>
             <Menu.Item key="6">
               <Icon type="pie-chart" />
@@ -133,8 +134,8 @@ class SiderDemo extends Component {
                         <Route path="/home/timer" component={Timer} />
                         <Route path="/time" component={TimeTask} />
                         <Route path="/redux" component={App2} />
+                        <Route path='/print' component={PrintTest} />
              </div>
-            
           </Content>
           <Footer style={{ textAlign: 'center',background:'peru' }}>
                 React / Antd / Redux  学习 - 2018

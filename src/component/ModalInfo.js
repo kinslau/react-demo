@@ -4,7 +4,7 @@ import { Modal, Button } from 'antd'
 
 
 function info(message) {
-    Modal.info({
+    const modal = Modal.info({
       title: '提示',
       content: (
         <div>
@@ -13,27 +13,31 @@ function info(message) {
       ),
       onOk() {},
     });
+    setTimeout(() => modal.destroy(), 1000);
   }
   
   function success(message) {
-    Modal.success({
+    const modal = Modal.success({
       title:'成功',
       content: message,
-    });
+    })
+    setTimeout(() => modal.destroy(), 1000)
   }
   
   function error(message) {
-    Modal.error({
+    const modal = Modal.error({
       title: '错误',
       content: message,
-    });
+    })
+    setTimeout(() => modal.destroy(), 1000);
   }
   
   function warning(message) {
-    Modal.warning({
+    const modal = Modal.warning({
       title: '警告',
       content: message,
-    });
+    })
+    setTimeout(() => modal.destroy(), 1000);
   }
 
 export  {info,success,error,warning}
