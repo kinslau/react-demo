@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../less/gird.css'
+import '../../less/gird.css'
 
 class Stuff extends Component{
     render(){

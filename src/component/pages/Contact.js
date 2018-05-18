@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Link } from 'react-router-dom'
-import '../less/flexbox.css'
+import '../../less/flexbox.css'
+import Slider from '../Slider';
 
 class Contact extends Component {
 
@@ -17,6 +18,9 @@ class Contact extends Component {
                     </ul>
                 </div>
                 <Link to="/home" >跳转到主页HOME</Link>
+
+
+                <Slider/>
             </div>
         )
     }

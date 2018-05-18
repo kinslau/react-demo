@@ -17,13 +17,15 @@ class Home extends Component {
         size: 'default'
     }
 
-
+   
     handleSizeChange(e) {
         console.log(e.target.value)
         this.props.history.push(e.target.value)
     }
 
-
+    componentWillMount() {
+         this.props.history.push('/home/charts')
+     }
 
     render() {
 
@@ -40,7 +42,7 @@ class Home extends Component {
                 </p>
                 <p>Duis a turpis sed lacus dapibus elementum sed eu lectus.</p>
 
-                <Radio.Group onChange={this.handleSizeChange}>
+                <Radio.Group onChange={this.handleSizeChange} defaultValue='/home/charts'>
                     <Radio.Button value="/home/timer"> 计时器  </Radio.Button>
                     <Radio.Button value="/home/menus">菜单</Radio.Button>
                     <Radio.Button value="/home/charts">图表</Radio.Button>

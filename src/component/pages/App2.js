@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import Footer from './Footer'
-import AddTodo from '../layout/AddTodo'
-import VisibleTodoList from '../layout/VisibleTodoList'
+import Footer from '../Footer'
+import AddTodo from '../../layout/AddTodo'
+import VisibleTodoList from '../../layout/VisibleTodoList'
 
 
 

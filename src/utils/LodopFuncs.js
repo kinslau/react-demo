@@ -1,8 +1,7 @@
-﻿import React, { Component } from 'react'
-var CreatedOKLodop7766=null;
+﻿var CreatedOKLodop7766=null;
 
 //====判断是否需要安装CLodop云打印服务器:====
- function needCLodop(){
+function needCLodop(){
     try{
 	var ua=navigator.userAgent;
 	if (ua.match(/Windows\sPhone/i) !=null) return true;
@@ -49,8 +48,8 @@ if (needCLodop()) {
 	head.insertBefore( oscript,head.firstChild );
 };
 
-//====获取LODOP对象的主过程：====
- export function getLodop(oOBJECT,oEMBED){
+//====获取LODOP对象的主过程：==== 
+export function getLodop(oOBJECT,oEMBED){
     var strHtmInstall="<br><font color='#FF00FF'>打印控件未安装!点击这里<a href='install_lodop32.exe' target='_self'>执行安装</a>,安装后请刷新页面或重新进入。</font>";
     var strHtmUpdate="<br><font color='#FF00FF'>打印控件需要升级!点击这里<a href='install_lodop32.exe' target='_self'>执行升级</a>,升级后请重新进入。</font>";
     var strHtm64_Install="<br><font color='#FF00FF'>打印控件未安装!点击这里<a href='install_lodop64.exe' target='_self'>执行安装</a>,安装后请刷新页面或重新进入。</font>";
@@ -63,7 +62,6 @@ if (needCLodop()) {
     try{
         var isIE = (navigator.userAgent.indexOf('MSIE')>=0) || (navigator.userAgent.indexOf('Trident')>=0);
         if (needCLodop()) {
-
             try{ LODOP=getCLodop();} catch(err) {};
 	    if (!LODOP && document.readyState!=="complete") {alert("C-Lodop没准备好，请稍后再试！"); return;};
             if (!LODOP) {
