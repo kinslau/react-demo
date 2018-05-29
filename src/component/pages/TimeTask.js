@@ -20,6 +20,7 @@ class NormalLoginForm extends React.Component {
 
   componentDidMount() {
     this.getClubs()
+    // this.buy()
   }
 
   handleSubmit = (e) => {
@@ -54,11 +55,22 @@ class NormalLoginForm extends React.Component {
   }
 
 
+
+  buy = () => {
+    var params = { goodsDetails: [{ tkTypeId: 50165, unitPrice: 40, num: 1 }] }
+    axios.post('/pc//nonmember/order', params)
+      .then(res => {
+        console.log(res)
+      }).catch(err => {
+        console.log(err)
+      })
+
+  }
+
+
   getClubs = () => {
     axios.get('/sys/clubs')
       .then(res => {
-
-        const data = JSON.stringify(res.data.clubs)
         this.setState({ clubs: res.data.clubs, isClickable: true })
       })
       .catch(err => {
@@ -91,7 +103,7 @@ class NormalLoginForm extends React.Component {
             <Select placeholder="选择要重新执行定时任务的场馆">
               {
                 list.map(e => {
-                  return  <Option key={e.id} value={e.id}>{e.clubName}</Option>
+                  return <Option key={e.id} value={e.id}>{e.clubName}</Option>
                 })
               }
             </Select>
@@ -108,7 +120,7 @@ class NormalLoginForm extends React.Component {
           })(
             <Select placeholder="选择要执行的任务">
               <Option value="1">凌晨2点10分  第三方支付账单</Option>
-              <Option value="2" >晚上11点半  清除子卡使用次数</Option>
+              <Option value="2" >凌晨5分  清除子卡使用次数</Option>
               <Option value="3" >晚上11点50  自动启用卡</Option>
               <Option value="4" >凌晨1分  重置线上售票次数</Option>
               <Option value="5" >晚上11点半 子卡首次激活</Option>

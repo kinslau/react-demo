@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+// import '../less/swipe.css'
 
 
 class Slider extends Component {
@@ -40,23 +41,26 @@ class Slider extends Component {
         this.startPlay()
     }
 
+
+
     render() {
-
-        const src = 'https://www.ikea.cn/ms/zh_CN/img/2017_img/homepage/hpin_what/PC_Living_Room_Banner_CN.jpg'
-
-
-
         return (
-            <div>
-                <ul style={{left:-100*this.state.nowIndex+'%',transitionDuration:1+'s',width:2*100+'%'}}> 
+            <div style={{width:'1200px',height:'280px'}}>
+                <ul > 
                     <li>
-                        <img src={src} />
+                        <div style={{background:'red',width:'400px',height:'280px'}}>
+                            PAGE_1
+                        </div>
                     </li>
                     <li>
-                        <img src={src} />
+                        <div style={{background:'gray',width:'400px',height:'280px'}}>
+                            PAGE_2
+                        </div>
                     </li>
                     <li>
-                        <img src={src} />
+                        <div style={{background:'pink',width:'400px',height:'280px'}}>
+                            PAGE_3
+                        </div>
                     </li>
                 </ul>
 

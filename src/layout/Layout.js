@@ -16,6 +16,8 @@ import App2 from '../component/pages/App2'
 import axios from 'axios'
 import TimeTask from '../component/pages/TimeTask';
 import PrintTest from '../component/pages/PrintTest';
+import Tables from '../component/pages/Tables';
+import Import from '../component/pages/Import';
 
 const { Header, Sider, Content, Footer } = Layout
 
@@ -66,7 +68,7 @@ class SiderDemo extends Component {
   }
 
   componentWillMount() {
-     this.props.history.push('/time')
+    //  this.props.history.push('/time')
   }
 
 
@@ -84,9 +86,9 @@ class SiderDemo extends Component {
               <Link to="/time" />
             </Menu.Item>
             <Menu.Item key="1">
-              <Icon type="setting" />
-              <span>设置</span>
-              <Link to="/buttons" />
+              <Icon type="upload" />
+              <span>导入会员</span>
+              <Link to="/import" />
             </Menu.Item>
             <Menu.Item key="2">
               <Icon type="video-camera" />
@@ -118,6 +120,11 @@ class SiderDemo extends Component {
               <span>权限系统</span>
               <Link to="/calculator" />
             </Menu.Item>
+            <Menu.Item key="8">
+              <Icon type="table" />
+              <span>报表</span>
+              <Link to="/table" />
+            </Menu.Item>
           </Menu>
         </Sider>
         <Layout >
@@ -142,6 +149,9 @@ class SiderDemo extends Component {
               <Route path="/time" component={TimeTask} />
               <Route path="/redux" component={App2} />
               <Route path='/print' component={PrintTest} />
+              <Route path='/table' component={Tables} />
+              <Route path='/import' component={Import} />
+
             </div>
           </Content>
           <Footer style={{ textAlign: 'center', background: 'peru' }}>

@@ -112,5 +112,6 @@
       "no-undef": "off"
     }
   },
-  "proxy": "http://101.200.172.219:7780"
+  
+  "proxy": "http://localhost:7780"
 }

@@ -72,7 +72,7 @@ class PrintTest extends Component {
 
 
 
-            lodop.PRINT();
+            // lodop.PRINT();
 
         } catch (e) {
 

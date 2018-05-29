@@ -32,6 +32,10 @@ zookeeper:  .2服务器  /usr/local/webserver/zookeeper-3.4.8
 
 
 
+洪山：
+   场馆系统路径 ：219服务器  /data/dodata/hstomcat/hstomcat  数据库连接  wuhan
+
+
 四维：
     场馆系统服务： 219服务器  /usr/local/webserver/apache-tomcat-8.0.36  数据库连接 clubbig
 
